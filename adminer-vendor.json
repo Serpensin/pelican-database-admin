@@ -1,0 +1,50 @@
+{
+  "adminer_version": "5.4.3",
+  "files": [
+    {
+      "path": "adminer.php",
+      "url": "https://github.com/vrana/adminer/releases/download/v5.4.3/adminer-5.4.3.php",
+      "sha256": "01b7c01b0c736a31c98dda87e9fdcefba56efd531ff212c316b0be2b65002031"
+    },
+    {
+      "path": "plugins/timeout.php",
+      "url": "https://raw.githubusercontent.com/vrana/adminer/master/plugins/timeout.php",
+      "sha256": "5a1b7c1a1d962bbb38feecdb5ae2e2863f972813ce8c58990caaa5253b098d79"
+    },
+    {
+      "path": "plugins/tables-filter.php",
+      "url": "https://raw.githubusercontent.com/vrana/adminer/master/plugins/tables-filter.php",
+      "sha256": "c071a4b41a4a48c2749046cf9e491ccc990a6c6bb72ba3a259f72a1595042a5d"
+    },
+    {
+      "path": "plugins/table-structure.php",
+      "url": "https://raw.githubusercontent.com/vrana/adminer/master/plugins/table-structure.php",
+      "sha256": "5bf66039f42d7ef3ae7e3ec42a4f312382780c8f64f99b849400199ea7f0fda8"
+    },
+    {
+      "path": "plugins/edit-textarea.php",
+      "url": "https://raw.githubusercontent.com/vrana/adminer/master/plugins/edit-textarea.php",
+      "sha256": "18908687744378d2bc0aecb520ba909ef39ba4393e9a9e736e6853028aebe0a6"
+    },
+    {
+      "path": "plugins/pretty-json-column.php",
+      "url": "https://raw.githubusercontent.com/vrana/adminer/master/plugins/pretty-json-column.php",
+      "sha256": "152c6e4984652e486f16dd8672c27ee6b67f15a0c1dc034f7e992acff6fbd09d"
+    },
+    {
+      "path": "plugins/dump-date.php",
+      "url": "https://raw.githubusercontent.com/vrana/adminer/master/plugins/dump-date.php",
+      "sha256": "42ae6175562df09e86491146efd8bb607fc416ed9bccc207d7ed31bf1ede5915"
+    },
+    {
+      "path": "plugins/dump-zip.php",
+      "url": "https://raw.githubusercontent.com/vrana/adminer/master/plugins/dump-zip.php",
+      "sha256": "241966eaa90b72a021a0ce99506d6da9f28c81eb1dddde4063589ae2f34d5cfd"
+    },
+    {
+      "path": "plugins/version-noverify.php",
+      "url": "https://raw.githubusercontent.com/vrana/adminer/master/plugins/version-noverify.php",
+      "sha256": "6826d9c5be7876c6097a507a6834a0c3f0a541064d0fd5e15b722cc58e4fecc8"
+    }
+  ]
+}

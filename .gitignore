@@ -1,0 +1,9 @@
+/vendor/
+/node_modules/
+/dist/
+/resources/adminer/adminer.php
+/resources/adminer/plugins/
+*.zip
+*.log
+release.env
+.DS_Store
