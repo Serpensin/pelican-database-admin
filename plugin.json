@@ -2,7 +2,7 @@
     "id": "serpensin-database-admin",
     "name": "Database Admin",
     "author": "Serpensin",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Open Pelican server databases directly in a secured bundled Adminer instance.",
     "category": "plugin",
     "url": "https://gitlab.com/Serpensin/pelican-database-admin",

@@ -4,7 +4,14 @@ use Serpensin\DatabaseAdmin\Support\AdminerContext;
 
 class PelicanSingleDatabaseAdminer extends Adminer\Plugin
 {
-    public function __construct(private readonly AdminerContext $context) {}
+    public function __construct(private readonly AdminerContext $context)
+    {
+        // This runs from Adminer's runtime after its helper functions have been
+        // declared. Let Adminer encrypt the password itself when it has an
+        // adminer_key cookie; never place the raw password into the session.
+        Adminer\set_password('server', $context->server, $context->username, $context->password);
+        $_SESSION['db']['server'][$context->server][$context->username][$context->database] = true;
+    }
 
     public function name()
     {
