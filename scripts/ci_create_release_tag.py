@@ -15,48 +15,42 @@ from typing import Any
 SEMVER_RE = re.compile(r'^v?(\d+\.\d+\.\d+(?:[-+][0-9A-Za-z.-]+)?)$')
 
 
-def normalize_tag(version: str) -> str | None:
+def version_tag(version: str) -> str:
     match = SEMVER_RE.match(version.strip())
-    return f'v{match.group(1)}' if match else None
+    if not match:
+        raise SystemExit(f'ERROR: invalid plugin version: {version}')
+
+    return f'v{match.group(1)}'
 
 
-def collect_versions(value: Any) -> set[str]:
-    versions: set[str] = set()
+def load_release_tag() -> str:
+    manifest = json.loads(Path('plugin.json').read_text())
+    update_data: dict[str, Any] = json.loads(Path('update.json').read_text())
+    version = manifest.get('version')
+    if not isinstance(version, str):
+        raise SystemExit('ERROR: plugin.json must declare a string version.')
 
-    if isinstance(value, dict):
-        for key, child in value.items():
-            tag = normalize_tag(str(key))
-            if tag:
-                versions.add(tag)
+    releases = update_data.get('releases')
+    active = update_data.get('*')
+    if not isinstance(releases, dict) or not isinstance(active, dict):
+        raise SystemExit('ERROR: update.json must contain releases and * objects.')
 
-            if key == 'version' and isinstance(child, str):
-                tag = normalize_tag(child)
-                if tag:
-                    versions.add(tag)
-            else:
-                versions.update(collect_versions(child))
-    elif isinstance(value, list):
-        for child in value:
-            versions.update(collect_versions(child))
+    release = releases.get(version)
+    if not isinstance(release, dict):
+        raise SystemExit(f'ERROR: update.json.releases is missing version {version}.')
 
-    return versions
+    if release.get('version') != version or active.get('version') != version:
+        raise SystemExit(f'ERROR: plugin.json, update.json.releases and update.json.* must all declare {version}.')
+
+    if release.get('download_url') != active.get('download_url'):
+        raise SystemExit('ERROR: update.json.releases and update.json.* must use the same current download_url.')
+
+    return version_tag(version)
 
 
-def tag_to_create() -> str | None:
-    versions = collect_versions(json.loads(Path('update.json').read_text()))
-    tags = set(
-        subprocess.run(['git', 'tag', '--list'], text=True, check=True, capture_output=True).stdout.splitlines()
-    )
-    missing = sorted(versions - tags)
-
-    print(f"Versions found in update.json: {', '.join(sorted(versions)) or '(none)'}")
-    print(f"Existing matching tags: {', '.join(sorted(versions & tags)) or '(none)'}")
-    print(f"Missing tags: {', '.join(missing) or '(none)'}")
-
-    if len(missing) > 1:
-        raise SystemExit('ERROR: update.json contains multiple untagged versions. Add one version at a time.')
-
-    return missing[0] if missing else None
+def tag_exists(tag: str) -> bool:
+    result = subprocess.run(['git', 'tag', '--list', tag], text=True, check=True, capture_output=True)
+    return result.stdout.strip() == tag
 
 
 def create_tag_with_git(tag: str, ref: str) -> int:
@@ -65,8 +59,7 @@ def create_tag_with_git(tag: str, ref: str) -> int:
     subprocess.run(['git', 'config', 'user.name', name], check=True)
     subprocess.run(['git', 'config', 'user.email', email], check=True)
 
-    existing = subprocess.run(['git', 'tag', '--list', tag], text=True, check=True, capture_output=True)
-    if existing.stdout.strip() != tag:
+    if not tag_exists(tag):
         subprocess.run(['git', 'tag', '-a', tag, ref, '-m', f'Version {tag}'], check=True)
 
     subprocess.run(['git', 'push', 'origin', tag], check=True)
@@ -75,13 +68,13 @@ def create_tag_with_git(tag: str, ref: str) -> int:
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description='Create the single version tag declared in update.json.')
+    parser = argparse.ArgumentParser(description='Create the tag for the current append-only update.json entry.')
     parser.add_argument('--dry-run', action='store_true', help='Report the tag that would be created without changing GitLab.')
     args = parser.parse_args()
 
-    tag = tag_to_create()
-    if tag is None:
-        print('No untagged update.json version found; tag creation skipped.')
+    tag = load_release_tag()
+    if tag_exists(tag):
+        print(f'Tag {tag} already exists; nothing to do.')
         return 0
 
     if args.dry_run:

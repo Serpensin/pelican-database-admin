@@ -1,4 +1,18 @@
 {
+  "releases": {
+    "1.0.0": {
+      "version": "1.0.0",
+      "download_url": "https://gitlab.com/Serpensin/pelican-database-admin/-/archive/v1.0.0/pelican-database-admin-v1.0.0.zip"
+    },
+    "1.0.1": {
+      "version": "1.0.1",
+      "download_url": "https://gitlab.com/Serpensin/pelican-database-admin/-/archive/v1.0.1/pelican-database-admin-v1.0.1.zip"
+    },
+    "1.0.3": {
+      "version": "1.0.3",
+      "download_url": "https://gitlab.com/Serpensin/pelican-database-admin/-/archive/v1.0.3/pelican-database-admin-v1.0.3.zip"
+    }
+  },
   "*": {
     "version": "1.0.3",
     "download_url": "https://gitlab.com/Serpensin/pelican-database-admin/-/archive/v1.0.3/pelican-database-admin-v1.0.3.zip"

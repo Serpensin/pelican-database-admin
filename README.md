@@ -47,7 +47,7 @@ https://gitlab.com/Serpensin/pelican-database-admin/-/raw/main/update.json
 
 ## Version tags and Adminer updates
 
-This project does not publish GitLab releases or package-registry archives. Each plugin update points to the ZIP archive GitLab generates for its matching `vX.Y.Z` tag. When publishing a version, keep `plugin.json` and `update.json` aligned and commit the change; the default-branch pipeline creates and pushes the matching tag.
+This project does not publish GitLab releases or package-registry archives. Each plugin update points to the ZIP archive GitLab generates for its matching `vX.Y.Z` tag. `update.json.releases` is an append-only history of every published plugin version; do not remove or rewrite existing entries. The `*` entry is the active update descriptor used by Pelican. When publishing a version, append its history entry, align `plugin.json` and `*`, and commit the change; the default-branch pipeline creates and pushes the matching tag.
 
 Adminer and the enabled plugins are committed under `resources/adminer/`. `adminer-vendor.json` records their versioned upstream URLs and SHA-256 checksums. CI downloads the declared files and verifies that the committed vendor tree matches them.
 
