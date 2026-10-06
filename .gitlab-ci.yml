@@ -23,9 +23,8 @@ vendor-adminer-verify:
   before_script:
     - apk add --no-cache python3 php-cli
   script:
-    - python3 scripts/vendor_adminer.py fetch --target /tmp/adminer-vendor
-    - find /tmp/adminer-vendor -name '*.php' -print0 | xargs -0 -n1 php -l
-    - diff -ru --exclude=index.php --exclude=plugins-custom resources/adminer /tmp/adminer-vendor
+    - python3 scripts/vendor_adminer.py verify --target resources/adminer
+    - find resources/adminer -name '*.php' -print0 | xargs -0 -n1 php -l
 
 create-release-tag:
   image: alpine:3.20
