@@ -11,10 +11,14 @@
     "1.0.3": {
       "version": "1.0.3",
       "download_url": "https://gitlab.com/Serpensin/pelican-database-admin/-/archive/v1.0.3/pelican-database-admin-v1.0.3.zip"
+    },
+    "1.0.4": {
+      "version": "1.0.4",
+      "download_url": "https://gitlab.com/Serpensin/pelican-database-admin/-/archive/v1.0.4/pelican-database-admin-v1.0.4.zip"
     }
   },
   "*": {
-    "version": "1.0.3",
-    "download_url": "https://gitlab.com/Serpensin/pelican-database-admin/-/archive/v1.0.3/pelican-database-admin-v1.0.3.zip"
+    "version": "1.0.4",
+    "download_url": "https://gitlab.com/Serpensin/pelican-database-admin/-/archive/v1.0.4/pelican-database-admin-v1.0.4.zip"
   }
 }

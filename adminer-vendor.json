@@ -37,11 +37,6 @@
       "sha256": "6e331bcc0cf28cb3304d4c730f623be71f72b107415f7fb8a1bd5f96889c0daa"
     },
     {
-      "path": "plugins/dump-zip.php",
-      "url": "https://raw.githubusercontent.com/vrana/adminer/v6.1.1/plugins/dump-zip.php",
-      "sha256": "3013a4f4d40e4ae3805bedfcecee6a23688f986910c97de5e61f5d582f099d7a"
-    },
-    {
       "path": "plugins/version-noverify.php",
       "url": "https://raw.githubusercontent.com/vrana/adminer/v6.1.1/plugins/version-noverify.php",
       "sha256": "f45d76681f866c4ed7e6f363e35251d3fb27c689ff41cc950abedd53269adc8f"

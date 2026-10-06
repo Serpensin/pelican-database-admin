@@ -48,7 +48,6 @@ function adminer_object() {
     include_once __DIR__ . '/plugins/table-structure.php';
     include_once __DIR__ . '/plugins/edit-textarea.php';
     include_once __DIR__ . '/plugins/dump-date.php';
-    include_once __DIR__ . '/plugins/dump-zip.php';
     include_once __DIR__ . '/plugins/version-noverify.php';
     include_once __DIR__ . '/plugins-custom/pelican-single-database.php';
 
@@ -61,7 +60,7 @@ function adminer_object() {
         new AdminerTableStructure(),
         new AdminerEditTextarea(),
         new AdminerDumpDate(),
-        new AdminerDumpZip(),
+
         new AdminerVersionNoverify(),
     ]);
 }

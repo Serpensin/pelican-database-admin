@@ -9,7 +9,7 @@ Pelican Panel plugin that adds a database edit button to the server `Databases` 
 - No public free-form Adminer login form.
 - Restricts Adminer to the selected database through an Adminer plugin.
 - Uses [Adminer](https://www.adminer.org/) 6.1.1 for database management.
-- Active Adminer plugins: query timeout, table filter, improved table structure, textarea editing, dated ZIP exports, and disabled version checks.
+- Active Adminer plugins: query timeout, table filter, improved table structure, textarea editing, dated exports, and disabled version checks.
 - Imports are enabled by default.
 
 ## Security model
