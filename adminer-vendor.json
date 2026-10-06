@@ -1,55 +1,50 @@
 {
-  "adminer_version": "5.4.3",
+  "adminer_version": "6.1.1",
   "files": [
     {
       "path": "LICENSE",
-      "url": "https://raw.githubusercontent.com/vrana/adminer/v5.4.3/LICENSE",
-      "sha256": "717db3b856ec651fd540c311505ec61aa9c8a03f47b56160792d5ddfb4d709a5"
+      "url": "https://raw.githubusercontent.com/vrana/adminer/v6.1.1/LICENSE",
+      "sha256": "8e2912d3c57cc01c55e2fb7d563a36c0ccada7f9c658e14bb1c2b50b15aa893d"
     },
     {
       "path": "adminer.php",
-      "url": "https://github.com/vrana/adminer/releases/download/v5.4.3/adminer-5.4.3.php",
-      "sha256": "01b7c01b0c736a31c98dda87e9fdcefba56efd531ff212c316b0be2b65002031"
+      "url": "https://github.com/vrana/adminer/releases/download/v6.1.1/adminer-6.1.1.php",
+      "sha256": "49c4d400994ef74bbb1b1b4d06c05445c1ba49ba3766b9092dce157750e09303"
     },
     {
       "path": "plugins/timeout.php",
-      "url": "https://raw.githubusercontent.com/vrana/adminer/v5.4.3/plugins/timeout.php",
-      "sha256": "5a1b7c1a1d962bbb38feecdb5ae2e2863f972813ce8c58990caaa5253b098d79"
+      "url": "https://raw.githubusercontent.com/vrana/adminer/v6.1.1/plugins/timeout.php",
+      "sha256": "3a6267e1ce9f29f52c4359b7949aaddd743b290dedbeb49cff25079bb94de0b9"
     },
     {
       "path": "plugins/tables-filter.php",
-      "url": "https://raw.githubusercontent.com/vrana/adminer/v5.4.3/plugins/tables-filter.php",
-      "sha256": "c071a4b41a4a48c2749046cf9e491ccc990a6c6bb72ba3a259f72a1595042a5d"
+      "url": "https://raw.githubusercontent.com/vrana/adminer/v6.1.1/plugins/tables-filter.php",
+      "sha256": "22aabbf8a04bff0d486a231e68962a67088733963b59798a3140a029cddd9c53"
     },
     {
       "path": "plugins/table-structure.php",
-      "url": "https://raw.githubusercontent.com/vrana/adminer/v5.4.3/plugins/table-structure.php",
-      "sha256": "5bf66039f42d7ef3ae7e3ec42a4f312382780c8f64f99b849400199ea7f0fda8"
+      "url": "https://raw.githubusercontent.com/vrana/adminer/v6.1.1/plugins/table-structure.php",
+      "sha256": "c23577aa9df605c65dc722968500781cd6059108d79ad15347f1aed16995b671"
     },
     {
       "path": "plugins/edit-textarea.php",
-      "url": "https://raw.githubusercontent.com/vrana/adminer/v5.4.3/plugins/edit-textarea.php",
-      "sha256": "18908687744378d2bc0aecb520ba909ef39ba4393e9a9e736e6853028aebe0a6"
-    },
-    {
-      "path": "plugins/pretty-json-column.php",
-      "url": "https://raw.githubusercontent.com/vrana/adminer/v5.4.3/plugins/pretty-json-column.php",
-      "sha256": "152c6e4984652e486f16dd8672c27ee6b67f15a0c1dc034f7e992acff6fbd09d"
+      "url": "https://raw.githubusercontent.com/vrana/adminer/v6.1.1/plugins/edit-textarea.php",
+      "sha256": "605c31b8309a355145925811349e26b055f9582eeba54e5b31acdaf5c3d26988"
     },
     {
       "path": "plugins/dump-date.php",
-      "url": "https://raw.githubusercontent.com/vrana/adminer/v5.4.3/plugins/dump-date.php",
-      "sha256": "42ae6175562df09e86491146efd8bb607fc416ed9bccc207d7ed31bf1ede5915"
+      "url": "https://raw.githubusercontent.com/vrana/adminer/v6.1.1/plugins/dump-date.php",
+      "sha256": "6e331bcc0cf28cb3304d4c730f623be71f72b107415f7fb8a1bd5f96889c0daa"
     },
     {
       "path": "plugins/dump-zip.php",
-      "url": "https://raw.githubusercontent.com/vrana/adminer/v5.4.3/plugins/dump-zip.php",
-      "sha256": "241966eaa90b72a021a0ce99506d6da9f28c81eb1dddde4063589ae2f34d5cfd"
+      "url": "https://raw.githubusercontent.com/vrana/adminer/v6.1.1/plugins/dump-zip.php",
+      "sha256": "3013a4f4d40e4ae3805bedfcecee6a23688f986910c97de5e61f5d582f099d7a"
     },
     {
       "path": "plugins/version-noverify.php",
-      "url": "https://raw.githubusercontent.com/vrana/adminer/v5.4.3/plugins/version-noverify.php",
-      "sha256": "6826d9c5be7876c6097a507a6834a0c3f0a541064d0fd5e15b722cc58e4fecc8"
+      "url": "https://raw.githubusercontent.com/vrana/adminer/v6.1.1/plugins/version-noverify.php",
+      "sha256": "f45d76681f866c4ed7e6f363e35251d3fb27c689ff41cc950abedd53269adc8f"
     }
   ]
 }

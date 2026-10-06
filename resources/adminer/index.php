@@ -47,7 +47,6 @@ function adminer_object() {
     include_once __DIR__ . '/plugins/tables-filter.php';
     include_once __DIR__ . '/plugins/table-structure.php';
     include_once __DIR__ . '/plugins/edit-textarea.php';
-    include_once __DIR__ . '/plugins/pretty-json-column.php';
     include_once __DIR__ . '/plugins/dump-date.php';
     include_once __DIR__ . '/plugins/dump-zip.php';
     include_once __DIR__ . '/plugins/version-noverify.php';
@@ -61,7 +60,6 @@ function adminer_object() {
         new AdminerTablesFilter(),
         new AdminerTableStructure(),
         new AdminerEditTextarea(),
-        new AdminerPrettyJsonColumn(),
         new AdminerDumpDate(),
         new AdminerDumpZip(),
         new AdminerVersionNoverify(),
