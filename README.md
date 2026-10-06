@@ -8,7 +8,7 @@ Pelican Panel plugin that adds a database edit button to the server `Databases` 
 - Uses the database credentials already stored by Pelican.
 - No public free-form Adminer login form.
 - Restricts Adminer to the selected database through an Adminer plugin.
-- Fetches Adminer and the active upstream Adminer plugins during release packaging; third-party Adminer source is not committed to this repository.
+- Includes Adminer 5.4.3 and its active upstream plugins directly in the repository, so PelicanHub can install from the repository without a separate release artifact.
 - Active Adminer plugins: query timeout, table filter, improved table structure, textarea editing, pretty JSON, dated ZIP exports, and disabled version checks.
 - Imports are enabled by default.
 
@@ -30,7 +30,7 @@ SERPENSIN_DATABASE_ADMIN_ROUTE_PREFIX=database-admin
 
 ## Install
 
-Download the ZIP from the GitLab release/package link, upload it through Pelican's plugin importer, or copy the folder to `plugins/serpensin-database-admin` and run:
+Install it from PelicanHub, or copy the repository folder to `plugins/serpensin-database-admin` and run:
 
 ```bash
 php artisan p:plugin:install serpensin-database-admin
@@ -45,20 +45,19 @@ https://gitlab.com/Serpensin/pelican-database-admin/-/raw/main/update.json
 ```
 
 
-## Release workflow
+## Version tags and Adminer updates
 
-Do not commit ZIPs or other binary release artifacts. To release a new version, edit `update.json` so it contains the new version number. The default-branch pipeline detects an untagged version in `update.json`, creates the matching `vX.Y.Z` tag, and the tag pipeline builds/uploads the ZIP to the GitLab Generic Package Registry and release assets.
+This project does not publish GitLab releases or package-registry archives. Each plugin update points to the ZIP archive GitLab generates for its matching `vX.Y.Z` tag. When publishing a version, keep `plugin.json` and `update.json` aligned and commit the change; the default-branch pipeline creates and pushes the matching tag.
 
-Release packaging runs `scripts/package.py`, which fetches Adminer and the active upstream Adminer plugins from `adminer-vendor.json` into the temporary package tree before the ZIP is created. The source repository stays free of third-party Adminer source files, archives, and binaries.
+Adminer and the enabled plugins are committed under `resources/adminer/`. `adminer-vendor.json` records their versioned upstream URLs and SHA-256 checksums. CI downloads the declared files and verifies that the committed vendor tree matches them.
+
+This plugin is licensed under [MIT](LICENSE). Bundled Adminer is separately dual-licensed under Apache License 2.0 or GPL 2.0; its upstream license notice is retained at [`resources/adminer/LICENSE`](resources/adminer/LICENSE).
 
 To intentionally update Adminer or an active Adminer plugin:
 
 ```bash
 # edit adminer-vendor.json first, e.g. bump the Adminer release URL/version
-python3 scripts/vendor_adminer.py lock --target /tmp/adminer-vendor
-python3 scripts/package.py
+python3 scripts/vendor_adminer.py lock
 ```
 
-`lock` refreshes the pinned SHA-256 checksums after downloading the configured files. CI uses `fetch`, which verifies those checksums and fails if upstream content changed unexpectedly.
-
-If GitLab does not allow `CI_JOB_TOKEN` to create repository tags, configure a masked CI/CD variable named `RELEASE_TOKEN` with permission to create tags for this project.
+`lock` refreshes the pinned SHA-256 checksums and writes the configured source into `resources/adminer/`. CI uses `fetch`, which verifies those checksums and fails if the committed vendor files differ from their declared source.
