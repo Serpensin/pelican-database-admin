@@ -1,0 +1,7 @@
+# Exclude CI, maintainer tooling, and developer notes from generated source archives.
+.gitlab-ci.yml      export-ignore
+.gitignore          export-ignore
+AGENTS.md           export-ignore
+DEVNOTES.md         export-ignore
+adminer-vendor.json export-ignore
+scripts             export-ignore
